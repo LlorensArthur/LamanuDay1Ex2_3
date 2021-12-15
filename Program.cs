@@ -1,9 +1,12 @@
 ﻿int age;
 string gender;
 Console.WriteLine("Veuillez indiquer votre âge");
-age = int.Parse(Console.ReadLine());
+while (!int.TryParse(Console.ReadLine(), out age))
+{
+    Console.WriteLine("Veuillez entrer uniquement un nombre.");
+}
 Console.WriteLine("Êtes-vous un homme ou une femme?");
-gender = Console.ReadLine();
+gender = Console.ReadLine().ToLower();
 if(gender == "homme")
 {
     if(age >= 18)
